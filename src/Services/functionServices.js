@@ -11,14 +11,14 @@ import { db } from "../config/firebaseConfig";
 //     if (!docRef.id) return new Error('An error ocurred while creating atodo')
 //     const projectSnap = await getDoc(doc(db, "todo", docRef.id))
 //     const project = {id: projectSnap.id, ...projectSnap.data()}
-//     return project
+//     return c
 //     // console.log(data);
 // }
 
-export  async function postData(data){
+export  async function postData(collectionType, data){
     try {
-        const docRef = await addDoc(collection(db, "todo"), data);
-        const documentRef = await doc(db, "todo", docRef.id);
+        const docRef = await addDoc(collection(db, collectionType), data);
+        const documentRef = await doc(db, collectionType, docRef.id);
         await updateDoc(documentRef, {
             id: docRef.id
           })

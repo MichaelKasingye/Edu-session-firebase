@@ -4,10 +4,14 @@ import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
+import SideBar from "./Componenets/SideBar";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <div className="row" style={{height:"1000px"}}>
+    <SideBar/>
+    <div className="col-8">
+      <BrowserRouter>
       <Routes>
           <Route index element={<Home />} />
           <Route path="blogs" element={<Blogs />} />
@@ -15,5 +19,9 @@ export default function App() {
           <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
+    </div>
+       
+    </div>
+   
   );
 }

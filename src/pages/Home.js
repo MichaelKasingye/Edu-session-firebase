@@ -13,11 +13,11 @@ export default function Home() {
     const handleSubmit = (event) => {
       event.preventDefault();
       console.log(inputs)
-    postData(inputs)
+    postData("todos",inputs)
     }
   return (
     <form onSubmit={handleSubmit} className="d-flex flex-column bd-highlight mb-3 container mt-5">
-      <label>Todo:
+      <label>Title:
       <input 
         type="text" 
         name="todo" 
@@ -25,14 +25,23 @@ export default function Home() {
         onChange={handleChange}
       />
       </label>
-      {/* <label>Enter your age:
-        <input 
-          type="number" 
-          name="age" 
-          value={inputs.age || ""} 
-          onChange={handleChange}
-        />
-        </label> */}
+      <label>Description:
+      <input 
+        type="text" 
+        name="todo" 
+        value={inputs.todo || ""} 
+        onChange={handleChange}
+      />
+      </label>
+      <label>Author:
+      <input 
+        type="text" 
+        name="todo" 
+        value={inputs.todo || ""} 
+        onChange={handleChange}
+      />
+      </label>
+    
         <input type="submit" />
     </form>
   )
